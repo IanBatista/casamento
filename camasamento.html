@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vamos casar?</title>
+    <style>
+        body {
+            background-color: red;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .botao {
+            background-color: black;
+            color: white;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        #botao-sim {
+            position: absolute;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .botao {
+                font-size: 1em;
+                padding: 5px 10px;
+                margin: 5px;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .botao-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Você aceita casar comigo?</h1>
+        <div class="botao-container">
+            <button id="botao-sim">Sim</button>
+            <button id="botao-nao">Não</button>
+        </div>
+    </div>
+    <script>
+        const botaoSim = document.getElementById("botao-sim");
+        const botaoNao = document.getElementById("botao-nao");
+
+        botaoSim.addEventListener("mouseover", function () {
+            const larguraJanela = window.innerWidth;
+            const alturaJanela = window.innerHeight;
+            const larguraBotao = botaoSim.offsetWidth;
+            const alturaBotao = botaoSim.offsetHeight;
+            const novaPosicaoX = Math.floor(Math.random() * (larguraJanela - larguraBotao));
+            const novaPosicaoY = Math.floor(Math.random() * (alturaJanela - alturaBotao));
+            botaoSim.style.left = novaPosicaoX + "px";
+            botaoSim.style.top = novaPosicaoY + "px";
+        });
+
+        botaoSim.addEventListener("click", function () {
+            alert("Parabéns! Você aceitou casar comigo!");
+        });
+
+        botaoSim.addEventListener("touchstart", function () {
+            const larguraJanela = window.innerWidth;
+            const alturaJanela = window.innerHeight;
+            const larguraBotao = botaoSim.offsetWidth;
+            const alturaBotao = botaoSim.offsetHeight;
+            const novaPosicaoX = Math.floor(Math.random() * (larguraJanela - larguraBotao));
+            const novaPosicaoY = Math.floor(Math.random() * (alturaJanela - alturaBotao));
+            botaoSim.style.left = novaPosicaoX + "px";
+            botaoSim.style.top = novaPosicaoY + "px";
+        });
+
+
+        botaoNao.addEventListener("click", function () {
+            alert("Que pena! :( Quem sabe na próxima vez...");
+        });
+    </script>
+</body>
+
+</html>
